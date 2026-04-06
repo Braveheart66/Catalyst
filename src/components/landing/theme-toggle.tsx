@@ -24,6 +24,7 @@ export function ThemeToggle() {
 
   useEffect(() => {
     applyTheme(theme);
+    window.localStorage.setItem(THEME_KEY, theme);
   }, [theme]);
 
   const isDark = theme === "dark";
@@ -36,7 +37,6 @@ export function ThemeToggle() {
       onClick={() => {
         const next: Theme = isDark ? "light" : "dark";
         setTheme(next);
-        window.localStorage.setItem(THEME_KEY, next);
       }}
     >
       <span className="sr-only">Toggle theme</span>

@@ -31,7 +31,7 @@ export function MagneticButton({ href, children, className }: MagneticButtonProp
         x.set(0);
         y.set(0);
       }}
-      whileHover={{ scale: 1.03 }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.985 }}
       className="inline-flex"
     >

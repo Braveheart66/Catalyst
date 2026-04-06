@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { RevealItem, RevealSection } from "@/components/landing/motion-primitives";
+import { TiltCard } from "@/components/landing/tilt-card";
 
 const outputs = [
   {
@@ -62,72 +63,82 @@ export function LiveDemoStrip() {
   }, [inView]);
 
   return (
-    <RevealSection id="live-demo" className="relative z-10 px-5 py-28 lg:px-8">
+    <RevealSection id="live-demo" className="section-divider-bottom relative z-10 px-5 py-28 lg:px-8">
       <div className="mx-auto max-w-[1240px]" ref={targetRef}>
         <RevealItem>
-          <div className="rounded-3xl border border-violet-400/30 bg-[#10131C]/95 p-6 shadow-[0_24px_64px_rgba(0,0,0,0.45)]">
-            <div className="rounded-2xl border border-white/12 bg-zinc-950/65 p-4">
-              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-zinc-500">Input</p>
-              <p className="text-sm text-zinc-200">
+          <div className="demo-terminal-shell rounded-3xl p-6">
+            <div className="terminal-topbar mb-4 flex items-center gap-2 rounded-xl px-3 py-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-500" />
+              <span className="h-2.5 w-2.5 rounded-full bg-violet-400" />
+              <span className="ml-2 text-[11px] font-medium uppercase tracking-[0.11em] text-zinc-600 dark:text-zinc-500">
+                catalyst.demo.runtime
+              </span>
+            </div>
+
+            <div className="rounded-2xl border border-black/10 bg-white p-4 shadow-md dark:border-white/12 dark:bg-zinc-950/70 dark:shadow-none">
+              <p className="mb-2 font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-zinc-600 dark:text-zinc-500">Input</p>
+              <p className="font-mono text-sm text-zinc-800 dark:text-zinc-200">
                 &quot;An app that lets dog owners find trusted pet-sitters using AI matching.&quot;
               </p>
             </div>
 
-            <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-amber-400/35 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-200">
-              <span className="h-2 w-2 rounded-full bg-amber-300" />
+            <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-red-500/35 bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-100">
+              <span className="h-2 w-2 rounded-full bg-red-400" />
               {status}
             </p>
 
             <div className="mt-4 grid gap-3 lg:grid-cols-[1.2fr_1fr_1fr]">
               {outputs.map((card, index) => (
-                <motion.article
-                  key={card.title}
-                  initial={{ opacity: 0, y: 16, scale: 0.98 }}
-                  animate={
-                    index < visibleCount
-                      ? { opacity: 1, y: 0, scale: 1 }
-                      : { opacity: 0, y: 16, scale: 0.98 }
-                  }
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="rounded-2xl border border-white/10 bg-zinc-900/80 p-4"
-                >
-                  <h3 className="mb-2 font-heading text-base font-semibold text-zinc-100">{card.title}</h3>
+                <TiltCard key={card.title} className="h-full rounded-2xl">
+                  <motion.article
+                    initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                    animate={
+                      index < visibleCount
+                        ? { opacity: 1, y: 0, scale: 1 }
+                        : { opacity: 0, y: 16, scale: 0.98 }
+                    }
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="h-full rounded-2xl border border-black/10 bg-white p-4 shadow-md dark:border-white/10 dark:bg-[#11141f]/86 dark:shadow-none"
+                  >
+                    <h3 className="mb-2 font-heading text-base font-semibold text-zinc-900 dark:text-zinc-100">{card.title}</h3>
 
-                  {card.body ? <p className="text-sm leading-relaxed text-zinc-300">{card.body}</p> : null}
+                    {card.body ? <p className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">{card.body}</p> : null}
 
-                  {card.table ? (
-                    <table className="w-full text-left text-xs text-zinc-300">
-                      <thead>
-                        <tr className="border-b border-white/10 text-zinc-400">
-                          <th className="py-1">Metric</th>
-                          <th className="py-1">Y1</th>
-                          <th className="py-1">Y2</th>
-                          <th className="py-1">Y3</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {card.table.map((row) => (
-                          <tr key={row[0]} className="border-b border-white/8">
-                            <td className="py-1.5">{row[0]}</td>
-                            <td className="py-1.5">{row[1]}</td>
-                            <td className="py-1.5">{row[2]}</td>
-                            <td className="py-1.5">{row[3]}</td>
+                    {card.table ? (
+                        <table className="w-full text-left text-xs text-zinc-700 dark:text-zinc-300">
+                        <thead>
+                            <tr className="border-b border-black/10 text-zinc-600 dark:border-white/10 dark:text-zinc-400">
+                            <th className="py-1">Metric</th>
+                            <th className="py-1">Y1</th>
+                            <th className="py-1">Y2</th>
+                            <th className="py-1">Y3</th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  ) : null}
+                        </thead>
+                        <tbody>
+                          {card.table.map((row) => (
+                              <tr key={row[0]} className="border-b border-black/8 dark:border-white/8">
+                              <td className="py-1.5">{row[0]}</td>
+                              <td className="py-1.5">{row[1]}</td>
+                              <td className="py-1.5">{row[2]}</td>
+                              <td className="py-1.5">{row[3]}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    ) : null}
 
-                  {card.list ? (
-                    <ul className="space-y-1 pl-4 text-sm text-zinc-300">
-                      {card.list.map((item) => (
-                        <li key={item} className="list-disc">
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </motion.article>
+                    {card.list ? (
+                        <ul className="space-y-1 pl-4 text-sm text-zinc-700 dark:text-zinc-300">
+                        {card.list.map((item) => (
+                          <li key={item} className="list-disc marker:text-red-300">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </motion.article>
+                </TiltCard>
               ))}
             </div>
           </div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { HeroParticleCanvas } from "@/components/landing/hero-particle-canvas";
 import { MagneticButton } from "@/components/landing/magnetic-button";
 import { RevealItem, RevealSection } from "@/components/landing/motion-primitives";
 import { TiltCard } from "@/components/landing/tilt-card";
@@ -22,22 +23,22 @@ const pipelineSteps = ["Validating idea...", "Building business model...", "Gene
 const outputCards: RuntimeCard[] = [
   {
     title: "Business Model",
-    body: "B2C subscription with trust scoring and dynamic expert matching for faster retention.",
-  },
-  {
-    title: "Pitch Deck",
-    body: "12-slide investor narrative with market pressure, moat logic, GTM plan, and milestones.",
+    body: "B2C subscription with trust scoring and dynamic expert matching for stronger retention.",
   },
   {
     title: "Financials",
     body: "3-year P&L model with CAC, LTV, runway, sensitivity scenarios, and margin assumptions.",
   },
   {
+    title: "Pitch Deck",
+    body: "12-slide investor narrative with market pressure, moat logic, GTM plan, and milestones.",
+  },
+  {
     title: "Competitor Map",
     body: "Actionable quadrant mapping with incumbents, weak spots, and wedge differentiation.",
   },
   {
-    title: "Clickable MVP",
+    title: "MVP",
     body: "High-intent prototype flow with onboarding, first value delivery, and analytics events.",
   },
 ];
@@ -57,7 +58,7 @@ function statusFromStep(step: number) {
 }
 
 export function Hero() {
-  const [promptInput, setPromptInput] = useState("Describe your startup idea...");
+  const [promptInput, setPromptInput] = useState("");
   const [typedPrompt, setTypedPrompt] = useState("");
   const [activeStep, setActiveStep] = useState(-1);
   const [cardPhases, setCardPhases] = useState<number[]>(() => outputCards.map(() => 0));
@@ -165,135 +166,201 @@ export function Hero() {
   const statusText = useMemo(() => statusFromStep(activeStep), [activeStep]);
 
   return (
-    <RevealSection id="top" className="relative z-10 px-5 pb-14 pt-34 lg:px-8">
-      <div className="mx-auto grid w-full max-w-[1240px] gap-12 lg:grid-cols-[1fr_1.06fr] lg:items-center">
-        <RevealItem>
-          <p className="eyebrow">The Founding Sprint</p>
-          <h1 className="hero-title">Your business idea. Investor-ready in 60 seconds.</h1>
-          <p className="hero-subtitle">
-            A precision startup build system for day-zero founders. One prompt in. Complete investor-ready Founder
-            Pack out.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center gap-5">
-            <MagneticButton
-              href="#live-demo"
-              className="h-12 border border-violet-400/45 bg-violet-600 px-6 text-sm font-semibold text-zinc-100"
-            >
-              Run the Founding Sprint {"->"}
-            </MagneticButton>
-            <p className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-200">
-              <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_12px_rgba(245,187,83,0.75)]" />
-              Live build stream active
+    <RevealSection id="top" className="section-divider-bottom relative z-20 bg-bg px-5 pb-20 pt-36 lg:px-8">
+      <div className="pointer-events-none absolute inset-0 -z-20 overflow-hidden">
+        <HeroParticleCanvas />
+        <div className="hero-particle-overlay" />
+      </div>
+
+      <div className="mx-auto grid w-full max-w-[1240px] gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <RevealItem className="relative z-30">
+          <div className="hero-content-glass overflow-hidden rounded-[30px] p-7 md:p-9 lg:p-10">
+            <div className="hero-heading-glow" aria-hidden="true" />
+
+            <p className="eyebrow">The Founding Sprint</p>
+            <h1 className="hero-title max-w-[16ch]">Your business idea. Investor-ready in 60 seconds.</h1>
+            <p className="hero-subtitle">
+              Catalyst runs your day-zero startup sprint from one prompt, producing an investor-ready founder package
+              with structured narrative, numbers, and product direction.
             </p>
+
+            <div className="mt-9 flex flex-wrap items-center gap-5">
+              <MagneticButton href="#live-demo" className="hero-cta h-12 px-6 text-sm font-semibold text-zinc-100">
+                Run the Founding Sprint {"->"}
+              </MagneticButton>
+              <p className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-100">
+                <span className="h-2 w-2 rounded-full bg-red-400 shadow-[0_0_12px_rgba(239,68,68,0.72)]" />
+                Runtime stream active
+              </p>
+            </div>
           </div>
         </RevealItem>
 
-        <RevealItem>
+        <RevealItem className="relative">
           <div className="relative">
             <div className="hero-glow" aria-hidden="true" />
-            <motion.div
-              className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-violet-500/45 to-indigo-500/20 blur-xl"
-              animate={{
-                y: [0, -12, 0],
-                x: [0, 10, 0],
-              }}
-              transition={{ duration: 7.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-            />
+
+            <div className="mb-3 hidden grid-cols-2 gap-3 lg:grid">
+              <motion.div
+                className="floating-status-card rounded-xl px-3 py-2.5"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 5.2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-500 dark:text-zinc-500">Validation</p>
+                <p className="mt-1 text-xs font-medium text-zinc-700 dark:text-zinc-200">Fit confidence: 92%</p>
+              </motion.div>
+
+              <motion.div
+                className="floating-status-card rounded-xl px-3 py-2.5"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 5.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.5 }}
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-500 dark:text-zinc-500">Investor Pack</p>
+                <p className="mt-1 text-xs font-medium text-zinc-700 dark:text-zinc-200">Deck + model synced</p>
+              </motion.div>
+            </div>
 
             <TiltCard
               className={`runtime-card ${
                 isBusy ? "runtime-card-busy" : ""
-              } rounded-3xl border border-violet-400/25 bg-[#10121A]/95 p-6 shadow-[0_24px_68px_rgba(0,0,0,0.5)]`}
+              } rounded-2xl border border-black/10 bg-white shadow-md dark:border-violet-500/10 dark:bg-black/40 dark:shadow-[0_24px_68px_rgba(0,0,0,0.52)] p-5 backdrop-blur-xl md:p-6`}
             >
-              <div className="mb-4 flex items-center justify-between gap-4">
-                <h2 className="font-heading text-lg font-semibold tracking-tight text-zinc-100">Catalyst Runtime</h2>
-                <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-200">
-                  <span className="h-2 w-2 rounded-full bg-amber-300" />
+              <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+                <h2 className="font-heading text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">Founding Sprint Simulation</h2>
+                <span className="inline-flex items-center gap-2 rounded-full border border-red-500/35 bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-100">
+                  <span className="h-2 w-2 rounded-full bg-red-400" />
                   Live
                 </span>
               </div>
 
-              <div className="mb-4 grid gap-3 sm:grid-cols-[1fr_auto]">
-                <input
-                  value={promptInput}
-                  onChange={(event) => setPromptInput(event.target.value)}
-                  className="h-11 rounded-xl border border-white/12 bg-zinc-950/75 px-4 text-sm text-zinc-100 outline-none transition-colors focus:border-violet-400/65"
-                  placeholder="Describe your startup idea..."
-                />
-                <button
-                  type="button"
-                  onClick={onRunClick}
-                  className="catalyst-btn shimmer-btn h-11 border border-violet-400/45 bg-violet-600/95 px-5 text-sm font-semibold text-zinc-100"
-                >
-                  Trigger
-                </button>
-              </div>
-
-              <div className="rounded-xl border border-white/12 bg-zinc-950/72 px-4 py-3 text-sm text-zinc-200">
-                <span className="mr-2 font-semibold text-violet-400">&gt;</span>
-                <span>{typedPrompt}</span>
-                <span className="ml-1 inline-block h-4 w-[2px] animate-pulse bg-violet-400 align-middle" />
-              </div>
-
-              <div className="mt-4 grid gap-2 sm:grid-cols-3">
-                {pipelineSteps.map((step, index) => {
-                  const isActive = activeStep === index;
-                  const isDone = activeStep > index;
-
-                  return (
-                    <span
-                      key={step}
-                      className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors ${
-                        isActive
-                          ? "border-violet-400/60 bg-violet-500/20 text-zinc-100"
-                          : isDone
-                            ? "border-emerald-400/35 bg-emerald-500/12 text-emerald-200"
-                            : "border-white/12 bg-white/4 text-zinc-400"
-                      }`}
+              <div className="space-y-5">
+                <section className="runtime-step-card rounded-xl border border-black/10 bg-white p-3.5 shadow-md dark:border-white/12 dark:bg-zinc-950/66 dark:shadow-none">
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.11em] text-zinc-600 dark:text-zinc-500">Step 1 · Input</p>
+                  <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+                    <input
+                      value={promptInput}
+                      onChange={(event) => setPromptInput(event.target.value)}
+                      className="h-11 rounded-xl border border-black/10 bg-white px-4 text-sm text-zinc-900 outline-none transition-colors focus:border-violet-400/65 dark:border-white/12 dark:bg-zinc-950/78 dark:text-zinc-100"
+                      placeholder="Describe your startup idea..."
+                    />
+                    <button
+                      type="button"
+                      onClick={onRunClick}
+                      className="catalyst-btn shimmer-btn hero-cta h-11 px-5 text-sm font-semibold text-zinc-100"
                     >
-                      {step}
-                    </span>
-                  );
-                })}
-              </div>
+                      Trigger
+                    </button>
+                  </div>
 
-              <p className="mt-4 text-xs font-medium text-zinc-400">{statusText}</p>
+                  <div className="mt-3 rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-zinc-700 dark:border-white/10 dark:bg-zinc-950/72 dark:text-zinc-200">
+                    <span className="mr-2 font-semibold text-violet-400">&gt;</span>
+                    <span>{typedPrompt || "Waiting for startup idea..."}</span>
+                    <span className="ml-1 inline-block h-4 w-[2px] animate-pulse bg-violet-400 align-middle" />
+                  </div>
+                </section>
 
-              <div className="mt-4 grid gap-2">
-                {outputCards.map((card, index) => {
-                  const phase = cardPhases[index];
+                <section className="runtime-step-card rounded-xl border border-black/10 bg-white p-3.5 shadow-md dark:border-white/12 dark:bg-zinc-950/66 dark:shadow-none">
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.11em] text-zinc-600 dark:text-zinc-500">Step 2 · Generation</p>
+                  <div className="space-y-2.5">
+                    {pipelineSteps.map((step, index) => {
+                      const isActive = activeStep === index;
+                      const isDone = activeStep > index || activeStep >= pipelineSteps.length;
+                      const isPending = !isDone;
 
-                  return (
-                    <motion.article
-                      key={card.title}
-                      initial={{ opacity: 0, y: 16, scale: 0.98 }}
-                      animate={
-                        phase === 0
-                          ? { opacity: 0, y: 16, scale: 0.98 }
-                          : { opacity: 1, y: 0, scale: 1, transition: { duration: 0.35 } }
-                      }
-                      className="relative overflow-hidden rounded-xl border border-white/10 bg-zinc-900/85 px-4 py-3"
-                    >
-                      {phase === 1 ? (
-                        <div className="space-y-2">
-                          <div className="h-3 w-32 rounded bg-zinc-700/80 skeleton-shimmer" />
-                          <div className="h-2.5 w-full rounded bg-zinc-700/60 skeleton-shimmer" />
-                          <div className="h-2.5 w-3/4 rounded bg-zinc-700/60 skeleton-shimmer" />
+                      return (
+                        <div
+                          key={step}
+                          className={`flex items-center gap-3 rounded-lg border px-3 py-2 text-xs transition-colors ${
+                            isActive
+                              ? "border-violet-500/45 bg-violet-500/10"
+                              : isDone
+                                ? "border-red-500/35 bg-red-500/10"
+                                : "border-black/10 bg-black/[0.02] dark:border-white/10 dark:bg-white/3"
+                          }`}
+                        >
+                          <span
+                            className={`inline-flex h-5 w-5 items-center justify-center rounded-full border text-[10px] font-semibold ${
+                              isDone
+                                ? "border-red-500/50 bg-red-500/15 text-red-100"
+                                : isActive
+                                  ? "border-violet-500/55 bg-violet-500/15 text-violet-100"
+                                  : "border-black/15 bg-black/[0.03] text-zinc-500 dark:border-white/20 dark:bg-white/5 dark:text-zinc-400"
+                            }`}
+                          >
+                            {isDone ? "✓" : index + 1}
+                          </span>
+                          <span
+                            className={`${
+                              isActive
+                                ? "text-zinc-900 dark:text-zinc-100"
+                                : isDone
+                                  ? "text-zinc-800 dark:text-zinc-200"
+                                  : "text-zinc-500 dark:text-zinc-400"
+                            }`}
+                          >
+                            {step}
+                          </span>
+                          <span
+                            className={`ml-auto h-2 rounded-full ${isActive ? "w-24" : "w-16"} ${
+                              isPending ? "skeleton-shimmer bg-black/10 dark:bg-white/14" : "bg-violet-500/35"
+                            }`}
+                          />
                         </div>
-                      ) : (
-                        <>
-                          <div className="mb-1.5 flex items-center justify-between gap-3">
-                            <h3 className="text-sm font-semibold text-zinc-100">{card.title}</h3>
-                            <span className="rounded-full border border-amber-400/35 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold text-amber-200">
-                              Ready in seconds
-                            </span>
-                          </div>
-                          <p className="text-xs leading-relaxed text-zinc-300">{card.body}</p>
-                        </>
-                      )}
-                    </motion.article>
-                  );
-                })}
+                      );
+                    })}
+                  </div>
+                  <p className="mt-3 text-xs font-medium text-zinc-500 dark:text-zinc-400">{statusText}</p>
+                </section>
+
+                <section className="runtime-step-card rounded-xl border border-black/10 bg-white p-3.5 shadow-md dark:border-white/12 dark:bg-zinc-950/66 dark:shadow-none">
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.11em] text-zinc-600 dark:text-zinc-500">Step 3 · Founder Pack Output</p>
+                  <div className="grid gap-2.5 sm:grid-cols-2">
+                    {outputCards.map((card, index) => {
+                      const phase = cardPhases[index];
+
+                      return (
+                        <TiltCard key={card.title} className="rounded-xl">
+                          <motion.article
+                            initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                            animate={
+                              phase === 0
+                                ? { opacity: 0, y: 16, scale: 0.98 }
+                                : {
+                                    opacity: 1,
+                                    y: 0,
+                                    scale: 1,
+                                    transition: {
+                                      duration: 0.35,
+                                      delay: index * 0.12,
+                                      ease: [0.22, 1, 0.36, 1],
+                                    },
+                                  }
+                            }
+                            className="runtime-output-card relative h-full overflow-hidden rounded-xl border border-black/10 bg-white px-3.5 py-3 shadow-md dark:border-white/10 dark:bg-[#141826]/88 dark:shadow-none"
+                          >
+                            {phase === 1 ? (
+                              <div className="space-y-2">
+                                <div className="h-3 w-24 rounded bg-zinc-700/80 skeleton-shimmer" />
+                                <div className="h-2.5 w-full rounded bg-zinc-700/60 skeleton-shimmer" />
+                                <div className="h-2.5 w-3/4 rounded bg-zinc-700/60 skeleton-shimmer" />
+                              </div>
+                            ) : (
+                              <>
+                                <div className="mb-1.5 flex items-center justify-between gap-2.5">
+                                  <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{card.title}</h3>
+                                  <span className="rounded-full border border-red-500/35 bg-red-500/10 px-2 py-0.5 text-[10px] font-semibold text-red-100">
+                                    Ready
+                                  </span>
+                                </div>
+                                <p className="text-xs leading-relaxed text-zinc-700 dark:text-zinc-300">{card.body}</p>
+                              </>
+                            )}
+                          </motion.article>
+                        </TiltCard>
+                      );
+                    })}
+                  </div>
+                </section>
               </div>
             </TiltCard>
           </div>

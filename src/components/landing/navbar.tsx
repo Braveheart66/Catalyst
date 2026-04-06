@@ -1,10 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { MagneticButton } from "@/components/landing/magnetic-button";
-import { ThemeToggle } from "@/components/landing/theme-toggle";
 import { cn } from "@/components/landing/utils";
+
+const ThemeToggle = dynamic(() => import("@/components/landing/theme-toggle").then((mod) => mod.ThemeToggle), {
+  ssr: false,
+  loading: () => <span className="inline-flex h-12 w-[132px] rounded-full border border-white/10 bg-white/[0.02]" />,
+});
 
 const navLinks = [
   { href: "#how", label: "How it Works" },
