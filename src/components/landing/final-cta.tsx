@@ -3,8 +3,11 @@ import { RevealItem, RevealSection } from "@/components/landing/motion-primitive
 
 export function FinalCta() {
   return (
-    <RevealSection id="final-cta" className="section-divider-bottom relative z-10 px-5 py-28 lg:px-8">
-      <div className="mx-auto max-w-[1240px]">
+    <RevealSection
+      id="final-cta"
+      className="section-divider-bottom relative z-10 flex w-full items-center justify-center px-4 py-24"
+    >
+      <div className="mx-auto w-full max-w-5xl text-center">
         <RevealItem>
           <div className="final-cta-shell rounded-3xl border border-black/10 p-8 text-center shadow-[0_18px_36px_rgba(15,23,42,0.14)] dark:border-white/12 dark:shadow-[0_24px_50px_rgba(0,0,0,0.36)] md:p-14">
             <h2 className="hero-title mx-auto max-w-3xl">Stop thinking. Start building.</h2>
