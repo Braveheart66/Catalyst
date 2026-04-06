@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalyst | Founding Sprint</title>
+    <meta
+      name="description"
+      content="Catalyst turns a plain-English business idea into an investor-ready startup package in under 60 seconds."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a href="#top" class="logo">
+          <span class="logo-mark">C</span>
+          <span class="logo-word">Catalyst</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#how">How it Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#stories">Stories</a>
+        </nav>
+        <a href="#final-cta" class="btn btn-nav shimmer-btn">Start Free</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="top" class="section hero-section">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal-on-scroll in-view">
+            <p class="eyebrow">Founding Sprint Protocol</p>
+            <h1>Your business idea. Investor-ready in 60 seconds.</h1>
+            <p class="hero-subhead">
+              Type one plain-English concept. Catalyst validates the opportunity,
+              structures your business model, and generates the founder pack your
+              first investor call expects.
+            </p>
+            <div class="hero-actions">
+              <a href="#live-demo" class="btn btn-primary shimmer-btn">
+                Run the Founding Sprint ->
+              </a>
+              <div class="live-inline">
+                <span class="live-dot"></span>
+                <span>Live build stream active</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-shot reveal-on-scroll in-view">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="runtime-card lift-card" id="heroRuntimeCard">
+              <div class="runtime-head">
+                <div class="runtime-title">Catalyst Runtime</div>
+                <div class="runtime-live">
+                  <span class="live-dot amber"></span>
+                  <span>Live</span>
+                </div>
+              </div>
+
+              <div class="runtime-input">
+                <span class="prompt-char">></span>
+                <span id="heroTypeTarget" class="type-target"></span>
+                <span class="caret" aria-hidden="true"></span>
+              </div>
+
+              <div class="runtime-status" id="heroStatusText">
+                Awaiting prompt input...
+              </div>
+
+              <div class="runtime-results" id="heroResults">
+                <article class="result-card" data-card="1">
+                  <div class="result-head">
+                    <h3>Business Model</h3>
+                    <span class="result-badge">Ready in seconds</span>
+                  </div>
+                  <p>
+                    B2C subscription model with neighborhood trust scoring and
+                    dynamic sitter matching.
+                  </p>
+                </article>
+
+                <article class="result-card" data-card="2">
+                  <div class="result-head">
+                    <h3>Pitch Deck</h3>
+                    <span class="result-badge">Ready in seconds</span>
+                  </div>
+                  <p>
+                    12-slide narrative: market pull, product wedge, moat, GTM,
+                    and 24-month milestones.
+                  </p>
+                </article>
+
+                <article class="result-card" data-card="3">
+                  <div class="result-head">
+                    <h3>Financials</h3>
+                    <span class="result-badge">Ready in seconds</span>
+                  </div>
+                  <p>
+                    3-year P&L, CAC/LTV assumptions, burn trajectory, and runway
+                    sensitivity bands.
+                  </p>
+                </article>
+
+                <article class="result-card" data-card="4">
+                  <div class="result-head">
+                    <h3>Competitor Map</h3>
+                    <span class="result-badge">Ready in seconds</span>
+                  </div>
+                  <p>
+                    Positioning matrix with incumbents, copycats, and an
+                    actionable differentiation vector.
+                  </p>
+                </article>
+
+                <article class="result-card" data-card="5">
+                  <div class="result-head">
+                    <h3>Clickable MVP</h3>
+                    <span class="result-badge">Ready in seconds</span>
+                  </div>
+                  <p>
+                    High-intent onboarding flow and first task completion path,
+                    exportable to Figma and code.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="social-proof-bar">
+        <div class="container social-grid">
+          <div class="logo-strip">
+            <span class="strip-label">Trusted by teams shaped by</span>
+            <div class="logo-cloud">
+              <span class="logo-pill">Y Combinator Alumni</span>
+              <span class="logo-pill">Techstars Network</span>
+              <span class="logo-pill">Product Hunt #1 Makers</span>
+              <span class="logo-pill">Seedcamp Operators</span>
+            </div>
+          </div>
+          <div class="stat-strip">
+            <span class="stat-pill">4,200+ startups validated</span>
+            <span class="stat-pill">Avg. 58 seconds to full output</span>
+            <span class="stat-pill">Used by founders in 90 countries</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section how-section">
+        <div class="container">
+          <div class="section-head reveal-on-scroll">
+            <p class="eyebrow">How It Works</p>
+            <h2>One prompt in. Full founder system out.</h2>
+          </div>
+
+          <div class="steps-track">
+            <div class="track-line" aria-hidden="true"></div>
+
+            <article class="step-card lift-card reveal-on-scroll">
+              <div class="step-header">
+                <span class="step-dot"></span>
+                <span class="step-label">Step 1</span>
+              </div>
+              <h3>Describe your idea</h3>
+              <p>
+                Write your startup concept in plain English. No templates,
+                frameworks, or jargon required.
+              </p>
+              <div class="input-mock">
+                <span class="prompt-char">></span>
+                <span>AI co-pilot for restaurant hiring and training...</span>
+              </div>
+            </article>
+
+            <article class="step-card lift-card reveal-on-scroll">
+              <div class="step-header">
+                <span class="step-dot"></span>
+                <span class="step-label">Step 2</span>
+              </div>
+              <h3>Catalyst validates + structures</h3>
+              <p>
+                Parallel model engine runs market viability, monetization logic,
+                and competitive pressure checks.
+              </p>
+              <div class="processing-ring" aria-hidden="true">
+                <div class="ring-core"></div>
+                <span>Market Fit Check</span>
+                <span>Revenue Model</span>
+                <span>Competitor Scan</span>
+              </div>
+            </article>
+
+            <article class="step-card lift-card reveal-on-scroll">
+              <div class="step-header">
+                <span class="step-dot"></span>
+                <span class="step-label">Step 3</span>
+              </div>
+              <h3>Download Founder Pack</h3>
+              <p>
+                Receive investor-facing strategy docs, narratives, and product
+                artifacts instantly.
+              </p>
+              <div class="fan-cards" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section showcase-section">
+        <div class="container">
+          <div class="section-head reveal-on-scroll">
+            <p class="eyebrow">Output Showcase</p>
+            <h2>Everything an early-stage founder needs, generated at launch speed.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card lift-card reveal-on-scroll span-a">
+              <div class="feature-top">
+                <h3>Business Model Canvas</h3>
+                <span class="result-badge">Ready in seconds</span>
+              </div>
+              <div class="mini-canvas">
+                <div>Problem</div>
+                <div>Segment</div>
+                <div>Channels</div>
+                <div>Value Prop</div>
+                <div>Revenue</div>
+                <div>Costs</div>
+              </div>
+            </article>
+
+            <article class="feature-card lift-card reveal-on-scroll span-b">
+              <div class="feature-top">
+                <h3>Financial Projections</h3>
+                <span class="result-badge">Ready in seconds</span>
+              </div>
+              <div class="mini-chart" aria-hidden="true">
+                <svg viewBox="0 0 320 130" role="img" aria-label="Revenue projection chart">
+                  <polyline points="10,118 70,100 130,82 190,58 250,35 310,18"></polyline>
+                  <polyline points="10,118 70,110 130,103 190,94 250,84 310,76" class="line-muted"></polyline>
+                </svg>
+              </div>
+            </article>
+
+            <article class="feature-card lift-card reveal-on-scroll span-c">
+              <div class="feature-top">
+                <h3>Pitch Deck</h3>
+                <span class="result-badge">Ready in seconds</span>
+              </div>
+              <div class="slide-stack" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </article>
+
+            <article class="feature-card lift-card reveal-on-scroll span-d">
+              <div class="feature-top">
+                <h3>Competitor Analysis</h3>
+                <span class="result-badge">Ready in seconds</span>
+              </div>
+              <div class="quadrant-map" aria-hidden="true">
+                <span class="axis x"></span>
+                <span class="axis y"></span>
+                <span class="point p1"></span>
+                <span class="point p2"></span>
+                <span class="point p3"></span>
+                <span class="point p4"></span>
+              </div>
+            </article>
+
+            <article class="feature-card lift-card reveal-on-scroll span-e">
+              <div class="feature-top">
+                <h3>Clickable MVP</h3>
+                <span class="result-badge">Ready in seconds</span>
+              </div>
+              <div class="phone-frame" aria-hidden="true">
+                <div class="phone-notch"></div>
+                <div class="phone-ui">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <button>Match sitter</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="live-demo" class="section live-demo-section">
+        <div class="container">
+          <div class="demo-panel reveal-on-scroll" id="liveDemoPanel">
+            <div class="demo-input">
+              <span class="demo-key">Input</span>
+              <p>
+                "An app that lets dog owners find trusted pet-sitters using AI
+                matching."
+              </p>
+            </div>
+            <div class="demo-status" id="liveDemoStatus">
+              <span class="live-dot amber"></span>
+              <span>Queued for generation...</span>
+            </div>
+
+            <div class="demo-grid" id="demoResults">
+              <article class="demo-card">
+                <h3>Business model output</h3>
+                <p>
+                  Two-sided marketplace with $19/mo owner membership + 15%
+                  booking fee. Trust moat built through AI fit-scoring,
+                  verification data, and post-booking behavior feedback loops.
+                </p>
+              </article>
+
+              <article class="demo-card">
+                <h3>3-year P&L snapshot</h3>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Metric</th>
+                      <th>Year 1</th>
+                      <th>Year 2</th>
+                      <th>Year 3</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Revenue</td>
+                      <td>$0.42M</td>
+                      <td>$2.1M</td>
+                      <td>$6.8M</td>
+                    </tr>
+                    <tr>
+                      <td>Gross Margin</td>
+                      <td>52%</td>
+                      <td>63%</td>
+                      <td>69%</td>
+                    </tr>
+                    <tr>
+                      <td>Net Income</td>
+                      <td>-$0.31M</td>
+                      <td>$0.28M</td>
+                      <td>$1.9M</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </article>
+
+              <article class="demo-card">
+                <h3>Competitor landscape</h3>
+                <ul>
+                  <li>Rover: high supply, low personalization trust layer.</li>
+                  <li>Wag!: transaction-first, weaker recurring retention loop.</li>
+                  <li>
+                    Catalyst output wedge: AI behavioral compatibility score +
+                    reliability guarantee.
+                  </li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stories" class="section testimonial-section">
+        <div class="container">
+          <div class="section-head reveal-on-scroll">
+            <p class="eyebrow">Founder Stories</p>
+            <h2>Built fast. Raised faster.</h2>
+          </div>
+
+          <div class="testimonial-grid">
+            <article class="quote-card lift-card reveal-on-scroll">
+              <div class="quote-meta">
+                <span class="avatar">AL</span>
+                <div>
+                  <h3>Ari Lane</h3>
+                  <p>NorthPort Health</p>
+                </div>
+              </div>
+              <blockquote>
+                "Catalyst cut six weeks of strategy work into one focused
+                minute. Our first deck was board-ready out of the gate."
+              </blockquote>
+              <p class="funded">
+                <span class="live-dot amber"></span>
+                Now funded ✦
+              </p>
+            </article>
+
+            <article class="quote-card lift-card reveal-on-scroll">
+              <div class="quote-meta">
+                <span class="avatar">MR</span>
+                <div>
+                  <h3>Mina Rojas</h3>
+                  <p>Dockline AI</p>
+                </div>
+              </div>
+              <blockquote>
+                "The competitor map alone changed our entire pitch narrative.
+                We closed our pre-seed in 22 days."
+              </blockquote>
+              <p class="funded">
+                <span class="live-dot amber"></span>
+                Now funded ✦
+              </p>
+            </article>
+
+            <article class="quote-card lift-card reveal-on-scroll">
+              <div class="quote-meta">
+                <span class="avatar">JT</span>
+                <div>
+                  <h3>Jamal Tran</h3>
+                  <p>Routecraft</p>
+                </div>
+              </div>
+              <blockquote>
+                "It felt like hiring a strategy team, a CFO, and a product lead
+                in one sprint."
+              </blockquote>
+              <p class="funded">
+                <span class="live-dot amber"></span>
+                Now funded ✦
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section pricing-section">
+        <div class="container">
+          <div class="section-head reveal-on-scroll">
+            <p class="eyebrow">Pricing</p>
+            <h2>Choose your startup velocity.</h2>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="price-card lift-card reveal-on-scroll">
+              <h3>Free Sprint</h3>
+              <p class="price">$0<span>/mo</span></p>
+              <ul>
+                <li>1 founding sprint per week</li>
+                <li>Core business model output</li>
+                <li>Basic investor summary export</li>
+              </ul>
+              <a href="#final-cta" class="btn btn-secondary shimmer-btn">Start Free</a>
+            </article>
+
+            <article class="price-card popular lift-card reveal-on-scroll">
+              <p class="popular-badge">Most Popular</p>
+              <h3>Founder Pro</h3>
+              <p class="price">$79<span>/mo</span></p>
+              <ul>
+                <li>Unlimited founding sprints</li>
+                <li>Full deck + financial model generator</li>
+                <li>Clickable MVP exports</li>
+                <li>Investor narrative tuning</li>
+              </ul>
+              <a href="#final-cta" class="btn btn-primary shimmer-btn">Start Pro</a>
+            </article>
+
+            <article class="price-card lift-card reveal-on-scroll">
+              <h3>Team</h3>
+              <p class="price">$249<span>/mo</span></p>
+              <ul>
+                <li>Workspace for up to 10 builders</li>
+                <li>Shared models and output libraries</li>
+                <li>Collaboration comments and approvals</li>
+                <li>Priority strategy support</li>
+              </ul>
+              <a href="#final-cta" class="btn btn-secondary shimmer-btn">Contact Sales</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="final-cta" class="section final-cta-section">
+        <div class="container">
+          <div class="final-cta-panel reveal-on-scroll">
+            <h2>Stop thinking. Start building.</h2>
+            <p>
+              Drop your idea. Let Catalyst run the founding sprint and return a
+              full investor-ready startup package.
+            </p>
+            <div class="cta-runner">
+              <span class="prompt-char">></span>
+              <input
+                type="text"
+                aria-label="Startup idea"
+                placeholder="Describe your startup idea in plain English"
+              />
+              <button class="btn btn-primary shimmer-btn">
+                Run Your Founding Sprint Free ->
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="#top" class="logo footer-logo">
+            <span class="logo-mark">C</span>
+            <span class="logo-word">Catalyst</span>
+          </a>
+          <p class="footer-tagline">
+            The precision AI platform for day-zero founders.
+          </p>
+        </div>
+
+        <div>
+          <h3>Product</h3>
+          <a href="#how">How it Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#live-demo">Live Demo</a>
+        </div>
+
+        <div>
+          <h3>Company</h3>
+          <a href="#stories">Stories</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div>
+          <h3>Legal</h3>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+          <div class="newsletter">
+            <label for="newsletterEmail">Newsletter</label>
+            <div class="newsletter-row">
+              <input id="newsletterEmail" type="email" placeholder="you@company.com" />
+              <button aria-label="Subscribe">-></button>
+            </div>
+          </div>
+          <div class="social-row" aria-label="Social links">
+            <a href="#" aria-label="X">X</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="GitHub">GH</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
